@@ -1,5 +1,6 @@
 MERGE INTO [Sales].[Customers] AS T
-	USING (VALUES ('Customer HW03 006')) AS S (NewCustomer)  
+--	USING (VALUES ('Customer HW03 006')) AS S (NewCustomer) 
+	USING (SELECT 'Customer HW03 006' AS NewCustomer) AS S
 	ON T.CustomerName = S.NewCustomer
 		WHEN MATCHED THEN
 		UPDATE SET PhoneNumber = '(123) 456-7897'
